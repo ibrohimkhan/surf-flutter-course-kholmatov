@@ -1,3 +1,6 @@
+/*
+* This data class represents user's Sight
+*/
 class Sight {
   const Sight({
     required this.name,
