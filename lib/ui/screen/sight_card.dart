@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/ui/res/text_styles.dart';
 
 /*
 * This class displays short info about the sight
@@ -23,13 +24,7 @@ class SightCard extends StatelessWidget {
                 top: 16,
                 child: Text(
                   sight.type ?? 'категория',
-                  style: TextStyle(
-                    fontFamily: 'Roboto',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
-                    fontStyle: FontStyle.normal,
-                    color: Colors.white,
-                  ),
+                  style: textBoldNormalStyle14White,
                 ),
               ),
               Positioned(
@@ -53,26 +48,14 @@ class SightCard extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
                   child: Text(
                     sight.name,
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w500,
-                      fontStyle: FontStyle.normal,
-                      fontSize: 16,
-                      color: Color.fromARGB(59, 62, 91, 1),
-                    ),
+                    style: textMediumNormalStyle16Secondary,
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 2, 16, 16),
                   child: Text(
                     sight.details ?? 'Details',
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.normal,
-                      fontSize: 14,
-                      color: Color.fromARGB(124, 126, 146, 1),
-                    ),
+                    style: textRegularNormal14Secondary2,
                   ),
                 ),
               ],
