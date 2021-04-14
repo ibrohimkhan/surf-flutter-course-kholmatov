@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../mocks.dart';
 import 'sight_card.dart';
+import 'sight_details.dart';
 
 /*
 * This class displays the list of interesting places on the screen
@@ -17,7 +18,7 @@ class _SightListScreenState extends State<SightListScreen> {
   @override
   Widget build(Object context) {
     return Scaffold(
-      appBar: AppBar(
+      /* appBar: AppBar(
         centerTitle: false,
         elevation: 0,
         toolbarHeight: 84,
@@ -33,8 +34,8 @@ class _SightListScreenState extends State<SightListScreen> {
             color: Colors.black,
           ),
         ),
-      ),
-      body: SingleChildScrollView(
+      ), */
+      body: SightDetails(sight: mocks[0]), /* SingleChildScrollView(
         child: Column(
           children: [
             SightCard(sight: mocks[0]),
@@ -44,7 +45,7 @@ class _SightListScreenState extends State<SightListScreen> {
             SightCard(sight: mocks[4]),
           ],
         ),
-      ),
+      ), */
     );
   }
 }
