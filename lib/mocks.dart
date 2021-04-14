@@ -3,22 +3,22 @@ import 'package:places/domain/sight.dart';
 final mocks = <Sight>[
   Sight(
     name: 'Dushanbe',
-    details: 'The capital of Tajikistan',
+    details: 'Capital of Tajikistan',
   ),
   Sight(
     name: 'Moscow',
-    details: 'The capital of Russia',
+    details: 'Capital of Russia',
   ),
   Sight(
     name: 'Tashkent',
-    details: 'The capital of Uzbekistan',
+    details: 'Capital of Uzbekistan',
   ),
   Sight(
     name: 'Ankara',
-    details: 'The capital of Turkey',
+    details: 'Capital of Turkey',
   ),
   Sight(
     name: 'Abu Dhabi',
-    details: 'The capital of UAE',
-  )
+    details: 'Capital of UAE',
+  ),
 ];
