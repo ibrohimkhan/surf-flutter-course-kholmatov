@@ -29,4 +29,7 @@ TextStyle _text = const TextStyle(
     textBoldNormalStyle = textBold.copyWith(fontStyle: FontStyle.normal),
     textBoldNormalStyle14 = textBoldNormalStyle.copyWith(fontSize: 14.0),
     textBoldNormalStyle14White =
-        textBoldNormalStyle14.copyWith(color: textColorWhite);
+        textBoldNormalStyle14.copyWith(color: textColorWhite),
+    textBoldNormalStyle32 = textBoldNormalStyle.copyWith(fontSize: 32.0),
+    textBoldNormalStyle32Black =
+        textBoldNormalStyle32.copyWith(color: textColorBlack);

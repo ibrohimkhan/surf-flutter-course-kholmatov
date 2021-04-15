@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:places/ui/res/text_styles.dart';
 
 import '../../mocks.dart';
 import 'sight_card.dart';
-import 'sight_details.dart';
+//import 'sight_details.dart';
 
 /*
 * This class displays the list of interesting places on the screen
@@ -18,24 +19,17 @@ class _SightListScreenState extends State<SightListScreen> {
   @override
   Widget build(Object context) {
     return Scaffold(
-      /* appBar: AppBar(
-        centerTitle: false,
-        elevation: 0,
-        toolbarHeight: 84,
-        backgroundColor: Colors.transparent,
-        title: Text(
-          'Список\nинтересных мест',
-          textAlign: TextAlign.left,
-          style: TextStyle(
-            fontFamily: 'Roboto',
-            fontSize: 32,
-            fontStyle: FontStyle.normal,
-            fontWeight: FontWeight.w700,
-            color: Colors.black,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(84),
+        child: Container(
+          margin: const EdgeInsets.only(top: 52, left: 16),
+          child: Text(
+            'Список\nинтересных мест',
+            style: textBoldNormalStyle32Black,
           ),
         ),
-      ), */
-      body: SightDetails(sight: mocks[0]), /* SingleChildScrollView(
+      ),
+      body: SingleChildScrollView(
         child: Column(
           children: [
             SightCard(sight: mocks[0]),
@@ -45,7 +39,7 @@ class _SightListScreenState extends State<SightListScreen> {
             SightCard(sight: mocks[4]),
           ],
         ),
-      ), */
+      ),
     );
   }
 }
