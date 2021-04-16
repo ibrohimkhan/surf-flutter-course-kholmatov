@@ -24,7 +24,7 @@ class SightCard extends StatelessWidget {
                   height: 150, // more user friendly
                   width: double.infinity,
                   child: Image.network(
-                    sight.url ?? 'https://picsum.photos/250?image=9',
+                    sight.url ?? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBKEGmmEQ4WlpXIfdqhhaFbJER2pXMLOFU3A&usqp=CAU',
                     fit: BoxFit.fitWidth,
                     loadingBuilder: (context, child, loadingProgress) {
                       if (loadingProgress == null) return child;

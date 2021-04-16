@@ -16,9 +16,19 @@ class SightDetails extends StatelessWidget {
         Stack(
           children: [
             Container(
-              color: Colors.lightGreenAccent,
               height: 360,
               width: double.infinity,
+              child: Image.network(
+                sight.url ?? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBKEGmmEQ4WlpXIfdqhhaFbJER2pXMLOFU3A&usqp=CAU',
+                fit: BoxFit.cover,
+                loadingBuilder: (context, child, loadingProgress) {
+                  if (loadingProgress == null) return child;
+                  return Center(child: CircularProgressIndicator());
+                },
+                errorBuilder: (context, error, trace) {
+                  return Center(child: Text('Network connection error'));
+                },
+              ),
             ),
             Positioned(
               top: 36,
