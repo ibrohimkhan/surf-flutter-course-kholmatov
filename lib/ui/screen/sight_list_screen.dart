@@ -3,7 +3,7 @@ import 'package:places/ui/res/text_styles.dart';
 
 import '../../mocks.dart';
 import 'sight_card.dart';
-//import 'sight_details.dart';
+import 'sight_details.dart';
 
 /*
 * This class displays the list of interesting places on the screen
@@ -29,7 +29,7 @@ class _SightListScreenState extends State<SightListScreen> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
+      body: SightDetails(sight: mocks[0]),/* SingleChildScrollView(
         child: Column(
           children: [
             SightCard(sight: mocks[0]),
@@ -39,7 +39,7 @@ class _SightListScreenState extends State<SightListScreen> {
             SightCard(sight: mocks[4]),
           ],
         ),
-      ),
+      ), */
     );
   }
 }
