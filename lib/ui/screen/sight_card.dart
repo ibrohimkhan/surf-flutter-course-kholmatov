@@ -20,7 +20,18 @@ class SightCard extends StatelessWidget {
           children: [
             Stack(
               children: [
-                Container(height: 96, color: Colors.lightBlueAccent),
+                Container(
+                  height: 150, // more user friendly
+                  width: double.infinity,
+                  child: Image.network(
+                    sight.url ?? 'https://picsum.photos/250?image=9',
+                    fit: BoxFit.fitWidth,
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) return child;
+                      return Center(child: CircularProgressIndicator());
+                    },
+                  ),
+                ),
                 Positioned(
                   left: 16,
                   top: 16,
