@@ -29,7 +29,7 @@ class _SightListScreenState extends State<SightListScreen> {
           ),
         ),
       ),
-      body: SightDetails(sight: mocks[0]),/* SingleChildScrollView(
+      body: /*SightDetails(sight: mocks[0]),*/ SingleChildScrollView(
         child: Column(
           children: [
             SightCard(sight: mocks[0]),
@@ -39,7 +39,7 @@ class _SightListScreenState extends State<SightListScreen> {
             SightCard(sight: mocks[4]),
           ],
         ),
-      ), */
+      ),
     );
   }
 }
