@@ -1,8 +1,8 @@
 /*
-* This data class represents user's Sight
+* This data class represents user's visited sight
 */
-class Sight {
-  const Sight({
+class VisitedSight {
+  const VisitedSight({
     required this.name,
     this.latitude,
     this.longitude,
