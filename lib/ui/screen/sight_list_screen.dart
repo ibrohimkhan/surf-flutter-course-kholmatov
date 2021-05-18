@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:places/ui/res/text_styles.dart';
+import 'res/text_styles.dart';
 
 import '../../mocks.dart';
 import 'sight_card.dart';

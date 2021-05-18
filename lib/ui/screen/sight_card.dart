@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
-import 'package:places/ui/res/text_styles.dart';
+import 'res/text_styles.dart';
 
 /*
 * This class displays short info about the sight
