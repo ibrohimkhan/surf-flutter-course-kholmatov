@@ -77,14 +77,14 @@ class _VisitingScreenState extends State<VisitingScreen>
 }
 
 class CustomTab extends StatelessWidget {
-  CustomTab({
+  const CustomTab({
     Key? key,
     required this.tabController,
     required this.isDarkMode,
   }) : super(key: key);
 
   final TabController tabController;
-  bool isDarkMode;
+  final bool isDarkMode;
 
   @override
   Widget build(BuildContext context) {

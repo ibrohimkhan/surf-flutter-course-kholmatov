@@ -49,3 +49,5 @@ TextStyle textBoldNormalStyle14InactiveBlack =
 TextStyle textBoldNormalStyle32 = textBoldNormalStyle.copyWith(fontSize: 32.0);
 TextStyle textBoldNormalStyle32Black =
     textBoldNormalStyle32.copyWith(color: textColorBlack);
+TextStyle textBoldNormalStyle32White =
+    textBoldNormalStyle32.copyWith(color: Colors.white);
