@@ -35,7 +35,7 @@ class _SightListScreenState extends State<SightListScreen> {
           ),
         ),
       ),
-      body: SightDetails(sight: mocks[0]),/* SingleChildScrollView(
+      body: SightDetails(sight: mocks[0], isDarkMode: widget.isDarkMode),/* SingleChildScrollView(
         child: Column(
           children: [
             SightCard(sight: mocks[0], isDarkMode: widget.isDarkMode),

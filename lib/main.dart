@@ -9,7 +9,7 @@ void main() {
 }
 
 class App extends StatelessWidget {
-  var isDarkMode = false;
+  var isDarkMode = true;
 
   @override
   Widget build(BuildContext context) {
