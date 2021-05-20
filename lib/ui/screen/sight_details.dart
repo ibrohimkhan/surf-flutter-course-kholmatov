@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/ui/screen/res/colors.dart';
+
+import 'res/text_styles.dart';
 
 /*
 * This class displays detail information about sight
 */
 class SightDetails extends StatelessWidget {
-  const SightDetails({Key? key, required this.sight}) : super(key: key);
+  const SightDetails({Key? key, required this.sight, required this.isDarkMode})
+      : super(key: key);
 
   final Sight sight;
+  final bool isDarkMode;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +24,8 @@ class SightDetails extends StatelessWidget {
               height: 360,
               width: double.infinity,
               child: Image.network(
-                sight.url ?? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBKEGmmEQ4WlpXIfdqhhaFbJER2pXMLOFU3A&usqp=CAU',
+                sight.url ??
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBKEGmmEQ4WlpXIfdqhhaFbJER2pXMLOFU3A&usqp=CAU',
                 fit: BoxFit.cover,
                 loadingBuilder: (context, child, loadingProgress) {
                   if (loadingProgress == null) return child;
@@ -36,11 +42,15 @@ class SightDetails extends StatelessWidget {
               child: Container(
                 width: 32,
                 height: 32,
-                color: Colors.white,
+                decoration: BoxDecoration(
+                  color: isDarkMode ? dmPrimaryColor : lmPrimaryColor,
+                  borderRadius: BorderRadius.circular(8),
+                ),
                 alignment: Alignment.center,
                 child: Text(
                   '<',
-                  style: TextStyle(color: Color(int.parse('0xff252849'))),
+                  style: TextStyle(
+                      color: isDarkMode ? lmPrimaryColor : textColorMain),
                 ),
               ),
             ),
@@ -55,70 +65,54 @@ class SightDetails extends StatelessWidget {
             children: [
               Text(
                 'Пряности и радости',
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontSize: 24,
-                  fontWeight: FontWeight.w700,
-                  fontStyle: FontStyle.normal,
-                  color: Color(int.parse('0xff3B3E5B')),
-                ),
+                style: isDarkMode
+                    ? textBoldNormalStyle24White
+                    : textBoldNormalStyle24,
               ),
               SizedBox(height: 2),
               Row(
                 children: [
                   Text(
                     'ресторан',
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
-                      fontStyle: FontStyle.normal,
-                      color: Color(int.parse('0xff3B3E5B')),
-                    ),
+                    style: isDarkMode
+                        ? textBoldNormalStyle14Secondary2
+                        : textBoldNormalStyle14,
                   ),
                   SizedBox(width: 16),
                   Text(
                     'закрыто до 09:00',
-                    style: TextStyle(
-                      fontFamily: 'Roboto',
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.normal,
-                      color: Color(int.parse('0xff3B3E5B')),
-                    ),
+                    style: isDarkMode
+                        ? textRegularNormal14InActive
+                        : textRegularNormal14,
                   ),
                 ],
               ),
               SizedBox(height: 24),
               Text(
                 'Пряный вкус радостной жизни вместе с шеф-поваром Изо Дзандзава, благодаря которой у гостей ресторана есть возможность выбирать из двух направлений: европейского и восточного',
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  fontStyle: FontStyle.normal,
-                  color: Color(int.parse('0xff3B3E5B')),
-                ),
+                style:
+                    isDarkMode ? textRegularNormal14White : textRegularNormal14,
               ),
               SizedBox(height: 24),
               Container(
-                color: Colors.green,
                 width: double.infinity,
                 height: 48,
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(15),
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Container(width: 20, height: 18, color: Colors.white),
+                    Icon(
+                      Icons.router,
+                      color: isDarkMode ? Colors.white : Colors.red,
+                    ),
                     SizedBox(width: 10),
                     Text(
                       'построить маршрут'.toUpperCase(),
-                      style: TextStyle(
-                        fontFamily: 'Roboto',
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                        fontStyle: FontStyle.normal,
-                        color: Colors.white,
-                      ),
+                      style: textBoldNormalStyle14White,
                     ),
                   ],
                 ),
@@ -131,21 +125,16 @@ class SightDetails extends StatelessWidget {
                     padding: EdgeInsets.all(16),
                     child: Row(
                       children: [
-                        Container(
-                          width: 22,
-                          height: 19,
-                          color: Colors.blueGrey,
+                        Icon(
+                          Icons.next_plan,
+                          color: isDarkMode ? Colors.white : Colors.blueGrey,
                         ),
                         SizedBox(width: 9),
                         Text(
                           'Запланировать',
-                          style: TextStyle(
-                            color: Color(int.parse('0xff7C7E92')),
-                            fontFamily: 'Roboto',
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            fontStyle: FontStyle.normal,
-                          ),
+                          style: isDarkMode
+                              ? textRegularNormal14InActive
+                              : textRegularNormal14Secondary2,
                         ),
                       ],
                     ),
@@ -155,21 +144,16 @@ class SightDetails extends StatelessWidget {
                     padding: EdgeInsets.all(16),
                     child: Row(
                       children: [
-                        Container(
-                          width: 22,
-                          height: 19,
-                          color: Colors.grey,
+                        Icon(
+                          Icons.favorite,
+                          color: isDarkMode ? Colors.white : Colors.red,
                         ),
                         SizedBox(width: 9),
                         Text(
                           'В Избранное',
-                          style: TextStyle(
-                            color: Color(int.parse('0xff3B3E5B')),
-                            fontFamily: 'Roboto',
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            fontStyle: FontStyle.normal,
-                          ),
+                          style: isDarkMode
+                              ? textRegularNormal14White
+                              : textRegularNormal14,
                         ),
                       ],
                     ),

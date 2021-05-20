@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
-import 'package:places/ui/res/text_styles.dart';
+import 'res/colors.dart';
+import 'res/text_styles.dart';
 
 /*
 * This class displays short info about the sight
 */
 class SightCard extends StatelessWidget {
-  const SightCard({Key? key, required this.sight}) : super(key: key);
+  const SightCard({Key? key, required this.sight, required this.isDarkMode})
+      : super(key: key);
 
   final Sight sight;
+  final bool isDarkMode;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16),
+      margin: EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        color: isDarkMode ? dmPrimaryColorDark : lmPrimaryColorLight,
+      ),
       child: AspectRatio(
         aspectRatio: 3 / 2,
         child: Column(
@@ -23,13 +30,19 @@ class SightCard extends StatelessWidget {
                 Container(
                   height: 150, // more user friendly
                   width: double.infinity,
-                  child: Image.network(
-                    sight.url ?? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBKEGmmEQ4WlpXIfdqhhaFbJER2pXMLOFU3A&usqp=CAU',
-                    fit: BoxFit.fitWidth,
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return Center(child: CircularProgressIndicator());
-                    },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(15),
+                        topRight: Radius.circular(15)),
+                    child: Image.network(
+                      sight.url ??
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBKEGmmEQ4WlpXIfdqhhaFbJER2pXMLOFU3A&usqp=CAU',
+                      fit: BoxFit.fitWidth,
+                      loadingBuilder: (context, child, loadingProgress) {
+                        if (loadingProgress == null) return child;
+                        return Center(child: CircularProgressIndicator());
+                      },
+                    ),
                   ),
                 ),
                 Positioned(
@@ -43,10 +56,9 @@ class SightCard extends StatelessWidget {
                 Positioned(
                   top: 16,
                   right: 16,
-                  child: Container(
-                    width: 20,
-                    height: 18,
-                    color: Colors.red,
+                  child: Icon(
+                    Icons.favorite,
+                    color: isDarkMode ? Colors.white : Colors.red,
                   ),
                 ),
               ],
@@ -61,14 +73,18 @@ class SightCard extends StatelessWidget {
                     padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
                     child: Text(
                       sight.name,
-                      style: textMediumNormalStyle16Secondary,
+                      style: isDarkMode
+                          ? textMediumNormalStyle16SecondaryWhite
+                          : textMediumNormalStyle16Secondary,
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(16, 2, 16, 16),
                     child: Text(
                       sight.details ?? 'Details',
-                      style: textRegularNormal14Secondary2,
+                      style: isDarkMode
+                          ? textRegularNormal14Secondary2Green
+                          : textRegularNormal14Secondary2,
                     ),
                   ),
                 ],
